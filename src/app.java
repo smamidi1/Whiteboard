@@ -11,7 +11,7 @@ import javax.persistence.Persistence;
  */
 public class app {
     public static void main(String args[]){
-        String username = "user";
+        String username = "user1";
         String password = "root";
         Userdao dao1 = new Userdao();
         String result = dao1.finduser(username,password);
