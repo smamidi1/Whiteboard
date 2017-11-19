@@ -11,10 +11,8 @@ import javax.servlet.annotation.WebServlet;
  */
 public class Usercontroller extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-       System.out.println("hi");
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        System.out.println(username + " " + password);
         Userdao dao1 = new Userdao();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();

@@ -8,9 +8,10 @@ import javax.persistence.*;
  */
 
 public class Userdao {
+    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("NewPersistenceUnit");
+    EntityManager em = emf.createEntityManager();
+
      public String finduser(String username, String password){
-         EntityManagerFactory emf =  Persistence.createEntityManagerFactory("NewPersistenceUnit");
-         EntityManager em = emf.createEntityManager();
          em.getTransaction().begin();
          Query q = em.createNamedQuery("UserEntity.Validation",UserEntity.class);
          q.setParameter("username",username);
@@ -30,4 +31,20 @@ public class Userdao {
              return "failed";
          }
      }
+
+    public void createUser(String username, String password, String usertype){
+        UserEntity user = new UserEntity();
+        user.setUsername(username);
+        user.setPassword(password);
+        user.setUsertype(usertype);
+        em.getTransaction().begin();
+        em.persist(user);
+        try {
+            em.getTransaction().commit();
+            em.close();
+            emf.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }

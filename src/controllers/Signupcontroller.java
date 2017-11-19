@@ -1,5 +1,8 @@
 package controllers;
 
+import dao.Userdao;
+import models.UserEntity;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,10 +16,11 @@ import java.io.IOException;
 @WebServlet(name = "Signupcontroller")
 public class Signupcontroller extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        String usertype = request.getParameter("usertype");
+        Userdao dao2 = new Userdao();
+        dao2.createUser(username,password,usertype);
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
 }
