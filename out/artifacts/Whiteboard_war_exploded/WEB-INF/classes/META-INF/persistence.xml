@@ -10,6 +10,7 @@
         <class>models.TaEntity</class>
         <class>models.UserEntity</class>
 
+
         <properties>
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>

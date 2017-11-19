@@ -11,4 +11,12 @@
         <servlet-name>Usercontroller</servlet-name>
         <url-pattern>/Usercontroller</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Signupcontroller</servlet-name>
+        <servlet-class>controllers.Signupcontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Signupcontroller</servlet-name>
+        <url-pattern>/Signupcontroller</url-pattern>
+    </servlet-mapping>
 </web-app>
