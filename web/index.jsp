@@ -9,11 +9,11 @@
 <html>
 <head>
   <link rel="stylesheet" href="style.css"/>
-  <title>Page - 1</title>
+  <title>Login</title>
 </head>
 <body>
 <div id ="login">
-  <form action="/Usercontroller" method="post">
+  <form action="Usercontroller" method="post">
     <h2>Sign In</h2>
     <b>Username</b>: <input type="text" name = "username" placeholder="
     Enter Username" />

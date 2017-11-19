@@ -8,9 +8,7 @@ import javax.persistence.*;
 @Entity
 @Table(name = "user", schema = "project_515")
 @NamedQueries({@NamedQuery(name="UserEntity.findAll", query="Select u from UserEntity u"),
-               @NamedQuery(name="UserEntity.Validation",query="Select u from UserEntity u where u.username = :username and u.password = :password"),
-               @NamedQuery(name="UserEntity.findByPassword",query="Select u from UserEntity u where u.password = :password"),
-               @NamedQuery(name="UserEntity.findByUsertype",query="Select u from UserEntity u where u.usertype = :usertype")})
+               @NamedQuery(name="UserEntity.Validation",query="Select u from UserEntity u where u.username = :username and u.password = :password")})
 public class UserEntity {
     private String username;
     private String password;

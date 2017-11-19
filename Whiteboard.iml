@@ -40,6 +40,6 @@
     <orderEntry type="library" name="org.eclipse.persistence:org.eclipse.persistence.osgi:2.4.2" level="project" />
     <orderEntry type="library" name="mysql:mysql-connector-java:5.1.44" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 7.0.56" level="application_server_libraries" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
   </component>
 </module>
