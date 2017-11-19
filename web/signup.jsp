@@ -15,7 +15,7 @@
         <span class="fontawesome-user"></span>
         <input type="text" id="username" placeholder="Username">
         <span class="fontawesome-user"></span>
-        <input type = "text" id = "usertype", placeholder="type">
+        <input type = "text" id = "usertype", placeholder="Usertype">
 
         <span class="fontawesome-lock"></span>
         <input type="password" id="password" placeholder="Password">
