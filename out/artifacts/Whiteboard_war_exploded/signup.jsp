@@ -13,21 +13,13 @@
 <div id="login">
     <form action= "Signupcontroller" method="post">
         <span class="fontawesome-user"></span>
-        <input type="text" id="username" placeholder="Username">
+        <input type="text" name="username" placeholder="Username">
         <span class="fontawesome-user"></span>
-        <input type = "text" id = "usertype", placeholder="Usertype">
-
+        <input type = "text" name="usertype" placeholder="Usertype">
         <span class="fontawesome-lock"></span>
-        <input type="password" id="password" placeholder="Password">
-
-
+        <input type="password" name="password" placeholder="Password">
         <input type="submit" value="Register">
-
     </form>
 </div>
-
-
-
-
 </body>
 </html>

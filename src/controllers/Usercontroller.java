@@ -11,19 +11,28 @@ import javax.servlet.annotation.WebServlet;
  */
 public class Usercontroller extends javax.servlet.http.HttpServlet {
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
-        Userdao dao1 = new Userdao();
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
-        String result = dao1.finduser(username,password);
-        if(result.equals("Professor")){
-            out.println("Success");
-        }else if(result == "Student"){
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+        if((username.length() > 0) && (password.length() > 0)){
+            Userdao dao1 = new Userdao();
+            String result = dao1.finduser(username, password);
+            if (result.equals("Professor")) {
+                out.println("Success");
+            } else if (result == "Student") {
 
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Login failed');");
+                out.println("location='index.jsp';");
+                out.println("</script>");
+            }
         }else{
-            out.println("failed");
+            out.println("<script type=\"text/javascript\">");
+            out.println("alert('Fields cannot be empty!');");
+            out.println("location='index.jsp';");
+            out.println("</script>");
         }
     }
-
 }

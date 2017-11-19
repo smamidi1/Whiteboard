@@ -1,10 +1,12 @@
 package dao;
 
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import models.UserEntity;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.sql.SQLException;
 
 /**
  * Created by Dhruva Juloori on 11/16/2017.
@@ -36,7 +38,7 @@ public class Userdao {
          }
      }
 
-    public void createUser(String username, String password, String usertype){
+    public String createUser(String username, String password, String usertype){
         UserEntity user = new UserEntity();
         user.setUsername(username);
         String hashed_password = getMD5(password);
@@ -48,8 +50,9 @@ public class Userdao {
             em.getTransaction().commit();
             em.close();
             emf.close();
+            return "Success";
         }catch (Exception e){
-            e.printStackTrace();
+            return "failed";
         }
     }
 
