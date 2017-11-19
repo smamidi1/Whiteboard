@@ -7,6 +7,7 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
     <link rel = "stylesheet" href="style.css">
+
 </head>
 
 <body>
@@ -21,7 +22,7 @@
 
         <input type="submit" value="Login">
 
-        <input type = button value = "signup" onclick= "signup.jsp">
+        <a href="signup.jsp" class="button">Signup</a>
 
     </form>
 
