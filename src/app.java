@@ -11,12 +11,11 @@ import javax.persistence.Persistence;
  */
 public class app {
     public static void main(String args[]){
-        String username = "kushal";
-        String password = "root52";
-        String usertype = "student";
+        String username = "user";
+        String password = "root";
         Userdao dao_test = new Userdao();
-        dao_test.createUser(username,password,usertype);
-
+       String result = dao_test.finduser(username,password);
+       System.out.println(result);
     }
 
 }

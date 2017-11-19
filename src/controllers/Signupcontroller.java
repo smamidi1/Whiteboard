@@ -1,7 +1,6 @@
 package controllers;
 
 import dao.Userdao;
-import models.UserEntity;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -22,5 +21,4 @@ public class Signupcontroller extends HttpServlet {
         Userdao dao2 = new Userdao();
         dao2.createUser(username,password,usertype);
     }
-
 }
