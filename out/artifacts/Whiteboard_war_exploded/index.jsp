@@ -10,7 +10,7 @@
 </head>
 <body>
 <div id="login">
-    <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 30px; color: white;" aria-hidden="true"></i> WHITEBOARD </font> </h1></Center>
+    <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
     <form action= "Usercontroller" method="post">
         <span class="fontawesome-user"></span>
         <input type="text" name="username" placeholder="Username">
