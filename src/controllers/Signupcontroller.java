@@ -29,9 +29,9 @@ public class Signupcontroller extends HttpServlet {
         }else {
             Userdao dao2 = new Userdao();
             String result = dao2.createUser(username, password, usertype);
-            if (result.equals("Success")) {
+            if (result.equals("Success")){
                 request.getRequestDispatcher("index.jsp").forward(request, response);
-            } else {
+            }else{
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Registration failed!');");
                 out.println("location='signup.jsp';");

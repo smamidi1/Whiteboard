@@ -1,22 +1,20 @@
 package dao;
 
-import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import models.UserEntity;
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-import java.sql.SQLException;
 
 /**
  * Created by Dhruva Juloori on 11/16/2017.
  */
 
 public class Userdao {
-    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("NewPersistenceUnit");
+    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("PersistenceUnit-1");
     EntityManager em = emf.createEntityManager();
 
-     public String finduser(String username, String password){
+     public String findUser(String username, String password){
          em.getTransaction().begin();
          Query q = em.createNamedQuery("UserEntity.Validation",UserEntity.class);
          String hashed_password = getMD5(password);

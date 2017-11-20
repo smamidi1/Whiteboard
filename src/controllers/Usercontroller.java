@@ -17,7 +17,7 @@ public class Usercontroller extends javax.servlet.http.HttpServlet {
         String password = request.getParameter("password");
         if((username.length() > 0) && (password.length() > 0)){
             Userdao dao1 = new Userdao();
-            String result = dao1.finduser(username, password);
+            String result = dao1.findUser(username, password);
             if (result.equals("Professor")) {
                 out.println("Success");
             } else if (result == "Student") {

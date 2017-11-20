@@ -9,8 +9,8 @@
     <link rel = "stylesheet" href="style.css">
 </head>
 <body>
-<center> <h1><font color="white"> WHITEBOAD </font> </h1></center>
 <div id="login">
+    <Center><h1>  <font color="white" style="font-family: cursive"> WHITEBOARD </font> </h1></Center>
     <form action= "Signupcontroller" method="post">
         <span class="fontawesome-user"></span>
         <input type="text" name="username" placeholder="Username">
