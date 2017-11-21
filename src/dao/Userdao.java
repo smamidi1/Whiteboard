@@ -1,6 +1,7 @@
 package dao;
 
 import models.UserEntity;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;

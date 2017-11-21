@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 
 /**
- * Created by Dhruva Juloori on 11/16/2017.
+ * Created by Dhruva Juloori on 11/20/2017.
  */
 @Entity
 @Table(name = "classes", schema = "project_515")
@@ -30,6 +30,7 @@ public class ClassesEntity {
     public void setClassName(String className) {
         this.className = className;
     }
+
 
     @Override
     public boolean equals(Object o) {

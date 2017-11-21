@@ -1,6 +1,4 @@
-import dao.Userdao;
 import models.ClassesEntity;
-import models.TaEntity;
 import models.UserEntity;
 
 import javax.persistence.EntityManager;
@@ -18,10 +16,8 @@ public class app {
         Userdao dao_test = new Userdao();
         dao_test.createUser(username,password,usertype);*/
        //System.out.println(result);
-        String class_id = "ITMD-510";
-        ClassesEntity ce = new ClassesEntity();
-        UserEntity ue3 = new UserEntity();
-        ce.setClassId(class_id);
+        String class_id = "ITMD-515";
+        UserEntity ce = new UserEntity();
 
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceUnit-1");
         EntityManager em = emf.createEntityManager();

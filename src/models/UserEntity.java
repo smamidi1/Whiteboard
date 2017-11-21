@@ -1,14 +1,15 @@
 package models;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
- * Created by Dhruva Juloori on 11/16/2017.
+ * Created by Dhruva Juloori on 11/20/2017.
  */
 @Entity
 @Table(name = "user", schema = "project_515")
 @NamedQueries({@NamedQuery(name="UserEntity.findAll", query="Select u from UserEntity u"),
-               @NamedQuery(name="UserEntity.Validation",query="Select u from UserEntity u where u.username = :username and u.password = :password")})
+        @NamedQuery(name="UserEntity.Validation",query="Select u from UserEntity u where u.username = :username and u.password = :password")})
 public class UserEntity {
     private String username;
     private String password;

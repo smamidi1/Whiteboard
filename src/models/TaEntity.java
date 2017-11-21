@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Dhruva Juloori on 11/16/2017.
+ * Created by Dhruva Juloori on 11/20/2017.
  */
 @Entity
 @Table(name = "ta", schema = "project_515")
@@ -14,7 +14,6 @@ public class TaEntity {
     private String taEmail;
     private String taPhone;
     private Timestamp taTimings;
-    private String classId;
     private String assignmentId;
 
     @Id
@@ -68,16 +67,6 @@ public class TaEntity {
     }
 
     @Basic
-    @Column(name = "class_id", nullable = true, length = 45)
-    public String getClassId() {
-        return classId;
-    }
-
-    public void setClassId(String classId) {
-        this.classId = classId;
-    }
-
-    @Basic
     @Column(name = "assignment_id", nullable = true, length = 45)
     public String getAssignmentId() {
         return assignmentId;
@@ -99,7 +88,6 @@ public class TaEntity {
         if (taEmail != null ? !taEmail.equals(taEntity.taEmail) : taEntity.taEmail != null) return false;
         if (taPhone != null ? !taPhone.equals(taEntity.taPhone) : taEntity.taPhone != null) return false;
         if (taTimings != null ? !taTimings.equals(taEntity.taTimings) : taEntity.taTimings != null) return false;
-        if (classId != null ? !classId.equals(taEntity.classId) : taEntity.classId != null) return false;
         if (assignmentId != null ? !assignmentId.equals(taEntity.assignmentId) : taEntity.assignmentId != null)
             return false;
 
@@ -113,7 +101,6 @@ public class TaEntity {
         result = 31 * result + (taEmail != null ? taEmail.hashCode() : 0);
         result = 31 * result + (taPhone != null ? taPhone.hashCode() : 0);
         result = 31 * result + (taTimings != null ? taTimings.hashCode() : 0);
-        result = 31 * result + (classId != null ? classId.hashCode() : 0);
         result = 31 * result + (assignmentId != null ? assignmentId.hashCode() : 0);
         return result;
     }
