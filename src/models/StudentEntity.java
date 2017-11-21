@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 
 /**
- * Created by Dhruva Juloori on 11/16/2017.
+ * Created by Dhruva Juloori on 11/20/2017.
  */
 @Entity
 @Table(name = "student", schema = "project_515")

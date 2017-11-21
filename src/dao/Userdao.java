@@ -1,6 +1,7 @@
 package dao;
 
 import models.UserEntity;
+
 import javax.persistence.*;
 import java.math.BigInteger;
 import java.security.MessageDigest;
@@ -11,10 +12,10 @@ import java.security.NoSuchAlgorithmException;
  */
 
 public class Userdao {
-    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("NewPersistenceUnit");
+    EntityManagerFactory emf =  Persistence.createEntityManagerFactory("PersistenceUnit-1");
     EntityManager em = emf.createEntityManager();
 
-     public String finduser(String username, String password){
+     public String findUser(String username, String password){
          em.getTransaction().begin();
          Query q = em.createNamedQuery("UserEntity.Validation",UserEntity.class);
          String hashed_password = getMD5(password);
@@ -36,7 +37,7 @@ public class Userdao {
          }
      }
 
-    public void createUser(String username, String password, String usertype){
+    public String createUser(String username, String password, String usertype){
         UserEntity user = new UserEntity();
         user.setUsername(username);
         String hashed_password = getMD5(password);
@@ -48,8 +49,9 @@ public class Userdao {
             em.getTransaction().commit();
             em.close();
             emf.close();
+            return "Success";
         }catch (Exception e){
-            e.printStackTrace();
+            return "failed";
         }
     }
 
