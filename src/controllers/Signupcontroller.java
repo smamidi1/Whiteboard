@@ -21,12 +21,6 @@ public class Signupcontroller extends HttpServlet {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String usertype = request.getParameter("usertype");
-        if((username.length() == 0) || (password.length() == 0) || (usertype.length() == 0)){
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Fields cannot be empty!');");
-            out.println("location='signup.jsp';");
-            out.println("</script>");
-        }else {
             Userdao dao2 = new Userdao();
             String result = dao2.createUser(username, password, usertype);
             if (result.equals("Success")){
@@ -39,4 +33,3 @@ public class Signupcontroller extends HttpServlet {
             }
         }
     }
-}

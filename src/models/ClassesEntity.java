@@ -1,18 +1,23 @@
 package models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by Dhruva Juloori on 11/20/2017.
+ * Created by Dhruva Juloori on 11/22/2017.
  */
 @Entity
 @Table(name = "classes", schema = "project_515")
 public class ClassesEntity {
-    private String classId;
-    private String className;
-
     @Id
     @Column(name = "class_id", nullable = false, length = 45)
+    private String classId;
+
+    @Basic
+    @Column(name = "class_name", nullable = true, length = 45)
+    private String className;
+
+
     public String getClassId() {
         return classId;
     }
@@ -21,8 +26,6 @@ public class ClassesEntity {
         this.classId = classId;
     }
 
-    @Basic
-    @Column(name = "class_name", nullable = true, length = 45)
     public String getClassName() {
         return className;
     }
@@ -31,24 +34,15 @@ public class ClassesEntity {
         this.className = className;
     }
 
+    @ManyToOne
+    @JoinColumn(name="user_name")
+    private UserEntity usr;
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        ClassesEntity that = (ClassesEntity) o;
-
-        if (classId != null ? !classId.equals(that.classId) : that.classId != null) return false;
-        if (className != null ? !className.equals(that.className) : that.className != null) return false;
-
-        return true;
+    public UserEntity getUsr() {
+        return usr;
     }
 
-    @Override
-    public int hashCode() {
-        int result = classId != null ? classId.hashCode() : 0;
-        result = 31 * result + (className != null ? className.hashCode() : 0);
-        return result;
+    public void setUsr(UserEntity usr) {
+        this.usr = usr;
     }
 }

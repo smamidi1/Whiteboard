@@ -1,13 +1,14 @@
 package models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by Dhruva Juloori on 11/20/2017.
+ * Created by Dhruva Juloori on 11/22/2017.
  */
 @Entity
 @Table(name = "assignment", schema = "project_515")
-public class AssignmentEntity {
+public class AssignmentEntity implements Serializable {
     private String assignmentId;
     private String assignmentName;
     private String assignmentDesc;
@@ -53,29 +54,4 @@ public class AssignmentEntity {
         this.totalPoints = totalPoints;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AssignmentEntity that = (AssignmentEntity) o;
-
-        if (assignmentId != null ? !assignmentId.equals(that.assignmentId) : that.assignmentId != null) return false;
-        if (assignmentName != null ? !assignmentName.equals(that.assignmentName) : that.assignmentName != null)
-            return false;
-        if (assignmentDesc != null ? !assignmentDesc.equals(that.assignmentDesc) : that.assignmentDesc != null)
-            return false;
-        if (totalPoints != null ? !totalPoints.equals(that.totalPoints) : that.totalPoints != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = assignmentId != null ? assignmentId.hashCode() : 0;
-        result = 31 * result + (assignmentName != null ? assignmentName.hashCode() : 0);
-        result = 31 * result + (assignmentDesc != null ? assignmentDesc.hashCode() : 0);
-        result = 31 * result + (totalPoints != null ? totalPoints.hashCode() : 0);
-        return result;
-    }
 }

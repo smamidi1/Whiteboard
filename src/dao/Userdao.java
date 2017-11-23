@@ -17,7 +17,7 @@ public class Userdao {
 
      public String findUser(String username, String password){
          em.getTransaction().begin();
-         Query q = em.createNamedQuery("UserEntity.Validation",UserEntity.class);
+         Query q = em.createNamedQuery("UserEntity.Validation", UserEntity.class);
          String hashed_password = getMD5(password);
          q.setParameter("username",username);
          q.setParameter("password",hashed_password);
