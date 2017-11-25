@@ -4,27 +4,33 @@ import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
- * Created by Dhruva Juloori on 11/20/2017.
+ * Created by Dhruva Juloori on 11/25/2017.
  */
 @Entity
 @Table(name = "schedule", schema = "project_515")
 public class ScheduleEntity {
-    private String scheduleId;
-    private Timestamp timings;
-    private String location;
-
     @Id
-    @Column(name = "schedule_id", nullable = false, length = 45)
-    public String getScheduleId() {
-        return scheduleId;
-    }
-
-    public void setScheduleId(String scheduleId) {
-        this.scheduleId = scheduleId;
-    }
+    @Column(name = "class_id", nullable = false, length = 45)
+    private String classId;
 
     @Basic
     @Column(name = "timings", nullable = true)
+    private Timestamp timings;
+
+    @Basic
+    @Column(name = "location", nullable = true, length = 45)
+    private String location;
+
+
+    public String getClassId() {
+        return classId;
+    }
+
+    public void setClassId(String classId) {
+        this.classId = classId;
+    }
+
+
     public Timestamp getTimings() {
         return timings;
     }
@@ -33,8 +39,7 @@ public class ScheduleEntity {
         this.timings = timings;
     }
 
-    @Basic
-    @Column(name = "location", nullable = true, length = 45)
+
     public String getLocation() {
         return location;
     }
@@ -43,25 +48,5 @@ public class ScheduleEntity {
         this.location = location;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
 
-        ScheduleEntity that = (ScheduleEntity) o;
-
-        if (scheduleId != null ? !scheduleId.equals(that.scheduleId) : that.scheduleId != null) return false;
-        if (timings != null ? !timings.equals(that.timings) : that.timings != null) return false;
-        if (location != null ? !location.equals(that.location) : that.location != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = scheduleId != null ? scheduleId.hashCode() : 0;
-        result = 31 * result + (timings != null ? timings.hashCode() : 0);
-        result = 31 * result + (location != null ? location.hashCode() : 0);
-        return result;
-    }
 }

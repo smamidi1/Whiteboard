@@ -15,24 +15,18 @@ public class Usercontroller extends javax.servlet.http.HttpServlet {
         PrintWriter out = response.getWriter();
         String username = request.getParameter("username");
         String password = request.getParameter("password");
-        if((username.length() > 0) && (password.length() > 0)){
-            Userdao dao1 = new Userdao();
-            String result = dao1.findUser(username, password);
-            if (result.equals("Professor")) {
-                out.println("Success");
-            } else if (result == "Student") {
-
-            } else {
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Login failed');");
-                out.println("location='index.jsp';");
-                out.println("</script>");
-            }
-        }else{
+        Userdao dao1 = new Userdao();
+        String result = dao1.findUser(username, password);
+        if (result.equals("Professor")) {
+            out.println("Success");
+        } else if (result.equals("Student")) {
+            out.println("Success and Hi!");
+        } else {
             out.println("<script type=\"text/javascript\">");
-            out.println("alert('Fields cannot be empty!');");
+            out.println("alert('Login failed');");
             out.println("location='index.jsp';");
             out.println("</script>");
-        }
+            //out.println(result);
+           }
+       }
     }
-}

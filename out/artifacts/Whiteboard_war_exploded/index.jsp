@@ -13,9 +13,9 @@
     <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
     <form action= "Usercontroller" method="post">
         <span class="fontawesome-user"></span>
-        <input type="text" name="username" placeholder="Username">
+        <input type="text" name="username" placeholder="Username" required>
         <span class="fontawesome-lock"></span>
-        <input type="password" name="password" placeholder="Password">
+        <input type="password" name="password" placeholder="Password" required>
         <input type="submit" value="Login">
         <a href="signup.jsp" class="submit" style="padding-left: 85px;color: white;">Click here to Register!</a>
     </form>

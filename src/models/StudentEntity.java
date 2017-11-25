@@ -1,13 +1,14 @@
 package models;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 /**
- * Created by Dhruva Juloori on 11/20/2017.
+ * Created by Dhruva Juloori on 11/22/2017.
  */
 @Entity
 @Table(name = "student", schema = "project_515")
-public class StudentEntity {
+public class StudentEntity implements Serializable {
     private String studentId;
     private String studentName;
     private String studentEmail;
@@ -53,27 +54,4 @@ public class StudentEntity {
         this.studentPhno = studentPhno;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        StudentEntity that = (StudentEntity) o;
-
-        if (studentId != null ? !studentId.equals(that.studentId) : that.studentId != null) return false;
-        if (studentName != null ? !studentName.equals(that.studentName) : that.studentName != null) return false;
-        if (studentEmail != null ? !studentEmail.equals(that.studentEmail) : that.studentEmail != null) return false;
-        if (studentPhno != null ? !studentPhno.equals(that.studentPhno) : that.studentPhno != null) return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = studentId != null ? studentId.hashCode() : 0;
-        result = 31 * result + (studentName != null ? studentName.hashCode() : 0);
-        result = 31 * result + (studentEmail != null ? studentEmail.hashCode() : 0);
-        result = 31 * result + (studentPhno != null ? studentPhno.hashCode() : 0);
-        return result;
-    }
 }
