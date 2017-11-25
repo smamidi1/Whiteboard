@@ -24,18 +24,6 @@ public class UserEntity {
     @Column(name = "usertype", nullable = true, length = 45)
     private String usertype;
 
-    @OneToMany(cascade=CascadeType.ALL)
-    @JoinColumn(name="user_name")
-    private List<ClassesEntity> classes;
-
-    public List<ClassesEntity> getClasses() {
-        return classes;
-    }
-
-    public void setClasses(List<ClassesEntity> classes) {
-        this.classes = classes;
-    }
-
 
     public String getUsername() {
         return username;
@@ -62,5 +50,18 @@ public class UserEntity {
     public void setUsertype(String usertype) {
         this.usertype = usertype;
     }
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="user_name")
+    private List<ClassesEntity> classes;
+
+    public List<ClassesEntity> getClasses() {
+        return classes;
+    }
+
+    public void setClasses(List<ClassesEntity> classes) {
+        this.classes = classes;
+    }
+
 
 }

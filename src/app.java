@@ -13,11 +13,11 @@ import java.util.List;
 public class app {
     public static void main(String args[]) {
       /*UserEntity ue = new UserEntity();
-      ue.setUsername("Kushal");
+        ue.setUsername("Kushal");
 
-      ClassesEntity ce = new ClassesEntity();
-      ce.setClassId("ITMD-518");
-      ce.setClassName("Java");
+        ClassesEntity ce = new ClassesEntity();
+        ce.setClassId("ITMD-518");
+        ce.setClassName("Java");
 
         ce.setUsr(ue);
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("PersistenceUnit-1");
@@ -26,7 +26,7 @@ public class app {
         em.persist(ce);
         em.getTransaction().commit();
         em.close();*/
-     /* UserEntity ue = new UserEntity();
+      UserEntity ue = new UserEntity();
       ue.setUsername("Kushal");
 
       ClassesEntity ce = new ClassesEntity();
@@ -37,7 +37,7 @@ public class app {
       ce2.setClassId("8907");
       ce2.setClassName("ITMD-515");
 
-      List<ClassesEntity> classes = new ArrayList<ClassesEntity>();
+      List<ClassesEntity> classes = new ArrayList<>();
       classes.add(ce);
       classes.add(ce2);
 
@@ -47,7 +47,7 @@ public class app {
       em.getTransaction().begin();
       em.persist(ue);
       em.getTransaction().commit();
-      em.close();*/
+      em.close();
 
     }
 

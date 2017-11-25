@@ -2,6 +2,7 @@ package models;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Dhruva Juloori on 11/22/2017.
@@ -34,7 +35,7 @@ public class ClassesEntity {
         this.className = className;
     }
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    /*@ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name ="user_name")
     private UserEntity usr;
 
@@ -44,5 +45,53 @@ public class ClassesEntity {
 
     public void setUsr(UserEntity usr) {
         this.usr = usr;
+    }*/
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="class_id")
+    private List<StudentEntity> students;
+
+    public List<StudentEntity> getStudents() {
+        return students;
     }
+
+    public void setStudents(List<StudentEntity> students) {
+        this.students = students;
+    }
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="class_id")
+    private List<TaEntity> taEntities;
+
+    public List<TaEntity> getTaEntities() {
+        return taEntities;
+    }
+
+    public void setTaEntities(List<TaEntity> taEntities) {
+        this.taEntities = taEntities;
+    }
+
+    @OneToMany(cascade=CascadeType.ALL)
+    @JoinColumn(name="class_id")
+    private List<AssignmentEntity> assignmentEntities;
+
+    public List<AssignmentEntity> getAssignmentEntities() {
+        return assignmentEntities;
+    }
+
+    public void setAssignmentEntities(List<AssignmentEntity> assignmentEntities) {
+        this.assignmentEntities = assignmentEntities;
+    }
+
+    /*@OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name="class_id")
+    private ScheduleEntity scheduleEntity;
+
+    public ScheduleEntity getScheduleEntity() {
+        return scheduleEntity;
+    }
+
+    public void setScheduleEntity(ScheduleEntity scheduleEntity) {
+        this.scheduleEntity = scheduleEntity;
+    }*/
 }
