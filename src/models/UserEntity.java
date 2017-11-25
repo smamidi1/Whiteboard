@@ -24,7 +24,7 @@ public class UserEntity {
     @Column(name = "usertype", nullable = true, length = 45)
     private String usertype;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn(name="user_name")
     private List<ClassesEntity> classes;
 

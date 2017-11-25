@@ -34,8 +34,8 @@ public class ClassesEntity {
         this.className = className;
     }
 
-    @ManyToOne
-    @JoinColumn(name="user_name")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name ="user_name")
     private UserEntity usr;
 
     public UserEntity getUsr() {
