@@ -43,4 +43,20 @@
         <servlet-name>Syllabuscontroller</servlet-name>
         <url-pattern>/Syllabuscontroller</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Tacontroller</servlet-name>
+        <servlet-class>controllers.Tacontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+    <servlet-name>Tacontroller</servlet-name>
+    <url-pattern>/Tacontroller</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Schedulecontroller</servlet-name>
+        <servlet-class>controllers.Schedulecontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Schedulecontroller</servlet-name>
+        <url-pattern>/Schedulecontroller</url-pattern>
+    </servlet-mapping>
 </web-app>

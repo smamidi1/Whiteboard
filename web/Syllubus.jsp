@@ -115,7 +115,7 @@
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
             <li class="breadcrumb-item">
-                <a href="Addsyllubus.jsp?username= <%=(String) session.getAttribute("username")%>">Add Syllubus</a>
+                <a href="Addsyllubus.jsp?username= <%=(String) session.getAttribute("username")%>">Add Syllabus</a>
             </li>
 
             <li class="breadcrumb-item active">Hello <%= user %></li>
@@ -123,14 +123,18 @@
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> Syllubus</div>
+                <i class="fa fa-table"></i> Syllabus</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                         <tr>
-                            <th>Class_id</th>
-                            <th>Syllubus</th>
+
+                            <th>Syllabus ID</th>
+                            <th>Class ID</th>
+                            <th>Syllabus</th>
+                            <th>delete</th>>
+
 
 
                         </tr>
@@ -138,17 +142,22 @@
 
                         <tbody>
                         <%
+                            HttpSession session2 = request.getSession();
                             Syllabusdao sd = new Syllabusdao();
                             List<SyllabusEntity> se = sd.getAllSyllubus();
                             for(int i=0;i<se.size();i++){
-                                String Class_id = se.get(i).getClassId();
+                                String syll_id = se.get(i).getIdsyllabus();
+                                String Class_id = se.get(i).getCLASS_ID();
                                 byte[] syllubus = se.get(i).getSyllabus();
+                                session2.setAttribute("syllubus",syllubus);
                         %>
 
                         <tr>
 
+                            <td><%= syll_id%></td>
                             <td><%= Class_id %></td>
-                            <td><%= syllubus%></td>
+                            <td><a href="syl_view.jsp" target="_blank">view</a></td>
+                            <td><a href = "sylldelete.jsp"> delete</a></td>
 
 
                         </tr>

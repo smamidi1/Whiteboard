@@ -49,7 +49,6 @@ public class Classesdao {
     }
 
     public String editClass(String classid, String classname, String username) {
-        //System.out.println(classid + " " + classname + " " + username);
         UserEntity user = new UserEntity();
         user.setUsername(username);
         ClassesEntity ce = new ClassesEntity();
@@ -71,8 +70,6 @@ public class Classesdao {
     public String removeClass(String classid){
         em.getTransaction().begin();
         ClassesEntity ce = em.find(ClassesEntity.class,classid);
-       // AssignmentEntity ae = em.find(AssignmentEntity.class,"2");
-        //UserEntity ue = em.find(UserEntity.class,"user");
         em.remove(ce);
         try {
             em.getTransaction().commit();

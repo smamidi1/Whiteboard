@@ -3,7 +3,7 @@ package models;
 import javax.persistence.*;
 
 /**
- * Created by Dhruva Juloori on 11/27/2017.
+ * Created by Dhruva Juloori on 12/1/2017.
  */
 @Entity
 @Table(name = "schedule", schema = "project_515")
@@ -18,9 +18,15 @@ public class ScheduleEntity {
     private String location;
 
     @Id
-    @Column(name = "id", nullable = false, length = 45)
-    private String id;
+    @Column(name = "schedule_id", nullable = false, length = 45)
+    private String scheduleId;
 
+    @Column(nullable = true)
+    private String CLASS_ID;
+
+    @Basic
+    @Column(name = "day", nullable = true, length = 45)
+    private String day;
 
     public String getTimings() {
         return timings;
@@ -40,13 +46,27 @@ public class ScheduleEntity {
     }
 
 
-    public String getId() {
-        return id;
+    public String getScheduleId() {
+        return scheduleId;
     }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setScheduleId(String scheduleId) {
+        this.scheduleId = scheduleId;
     }
 
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
 
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
 }

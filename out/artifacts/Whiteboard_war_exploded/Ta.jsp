@@ -86,7 +86,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -110,13 +110,15 @@
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
-
+            <li class="breadcrumb-item">
+                <a href="addta.jsp?username= <%=(String) session.getAttribute("username")%>">Add TA</a>
+            </li>
             <li class="breadcrumb-item active">Hello <%= user %></li>
         </ol>
         <!-- Example DataTables Card-->
         <div class="card mb-3">
             <div class="card-header">
-                <i class="fa fa-table"></i> List of Courses</div>
+                <i class="fa fa-table"></i> List of Teaching assistants</div>
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
@@ -127,6 +129,7 @@
                             <th>TA_phone</th>
                             <th>TA_Email</th>
                             <th>TA_Timings</th>
+                            <th>delete</th>
 
                         </tr>
                         </thead>
@@ -140,7 +143,8 @@
                                 String ta_name = te.get(i).getTaName();
                                 String ta_ph = te.get(i).getTaPhone();
                                 String ta_email = te.get(i).getTaEmail();
-                                Timestamp timings = te.get(i).getTaTimings();
+                                String timings = te.get(i).getTaTimings();
+                                String day = te.get(i).getDay();
                         %>
 
                         <tr>
@@ -149,7 +153,8 @@
                             <td><%= ta_name%></td>
                             <td><%= ta_ph%></td>
                             <td><%= ta_email %></td>
-                            <td><%=timings%></td>
+                            <td><%= day %> <%=timings%></td>
+                            <td><a href ="deleteta.jsp">delete </a></td>
 
                         </tr>
                         <%

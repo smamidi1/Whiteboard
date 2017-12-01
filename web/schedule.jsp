@@ -88,7 +88,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -112,6 +112,9 @@
     <div class="container-fluid">
         <!-- Breadcrumbs-->
         <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="addschedule.jsp?username= <%=(String) session.getAttribute("username")%>">Add Schedule</a>
+            </li>
 
             <li class="breadcrumb-item active">Hello <%= user %></li>
         </ol>
@@ -125,8 +128,13 @@
                         <thead>
                         <tr>
                             <th>Class_id</th>
+                            <th>Schedule_id</th>
                             <th>location</th>
                             <th>Class_timings</th>
+
+                            <th>edit</th>
+                            <th>delete</th>
+
 
                         </tr>
                         </thead>
@@ -136,16 +144,22 @@
                             Scheduledao sd = new Scheduledao();
                             List<ScheduleEntity> se = sd.getAllschedule();
                             for(int i=0;i<se.size();i++){
-                                String Class_id = se.get(i).getId();
+                                String sch_id = se.get(i).getScheduleId();
+                                String Class_id = se.get(i).getCLASS_ID();
                                 String location = se.get(i).getLocation();
                                 String Class_timings = se.get(i).getTimings();
+                                String day = se.get(i).getDay();
                         %>
 
                         <tr>
 
                             <td><%= Class_id %></td>
+                            <td><%=sch_id %> </td>
                             <td><%= location%></td>
-                            <td><%= Class_timings%></td>
+                            <td><%=day %><%= Class_timings%></td>
+                            <td><a href ="addschedule.jsp"> edit </a></td>
+                            <td><a href ="delete_schedule.jsp"> delete </a></td>
+
 
 
                         </tr>

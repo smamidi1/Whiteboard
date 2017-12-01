@@ -1,6 +1,7 @@
 package dao;
+
+import models.ClassesEntity;
 import models.SyllabusEntity;
-import sun.misc.IOUtils;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +10,6 @@ import javax.persistence.Query;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
-import java.io.ByteArrayInputStream;
-//import org.apache.commons.io.IOUtils;
 
 public class Syllabusdao {
     EntityManagerFactory emf =  Persistence.createEntityManagerFactory("PersistenceUnit-1");
@@ -23,15 +22,33 @@ public class Syllabusdao {
         return se;
     }
 
-    public String addsyllubus(String class_id, InputStream inputStream) throws IOException {
+    public String addsyllubus(String class_id, InputStream inputStream, String syllabus) throws IOException {
         SyllabusEntity syllubusEntity = new SyllabusEntity();
-        syllubusEntity.setClassId(class_id);
+        syllubusEntity.setCLASS_ID(class_id);
+        syllubusEntity.setIdsyllabus(syllabus);
         syllubusEntity.setSyllabus(org.apache.commons.io.IOUtils.toByteArray(inputStream));
         em.getTransaction().begin();
         em.persist(syllubusEntity);
-        em.getTransaction().commit();
-        em.close();
-        return "done";
+        try {
+            em.getTransaction().commit();
+            em.close();
+            return "done";
+        }catch (Exception e){
+            return "not done";
+        }
+    }
 
+    public String removeSyllabus(String syllabus_id){
+        em.getTransaction().begin();
+        SyllabusEntity syllabus = em.find(SyllabusEntity.class,syllabus_id);
+        em.remove(syllabus);
+        try {
+            em.getTransaction().commit();
+            em.close();
+            emf.close();
+            return "Syllabus Removed";
+        }catch (Exception e){
+            return "Not Removed";
+        }
     }
 }

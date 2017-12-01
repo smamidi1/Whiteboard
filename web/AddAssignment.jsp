@@ -85,7 +85,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -121,16 +121,17 @@
     <div id="login">
         <!-- /.container-fluid-->
         <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
-        <form action= "Assignmentcontroller" method="post">
+        <form action= "Assignmentcontroller" method="post" enctype="multipart/form-data">
 
-            <input type="text" name = "assignment_id" placeholder="ID" required>
+            <input type="text" name = "Assignment-ID" placeholder="ID" required>
 
-            <input type="text" name="assigment_name" placeholder="Name" required>
-            <input type="text" name="assigment_desc" placeholder="Description" required>
-            <input type="text" name="total_points" placeholder="Total points" required>
-            <input type="text" name="dead_line" placeholder="DUE Date" required>
-
-            <input type="submit" value="Add">
+            <input type="text" name="Assignment-Name"" placeholder="Name" required>
+            <input type="file" name="Assignment-doc" placeholder="Assignment" required>
+            <input type="text" name="Total-Points" placeholder="Total points" required>
+            <input type="text" name="classid" placeholder="classid" required>
+            <input type ="submit" name="add" value="add">
+            <input type ="submit" name="edit" value="edit">
+            <input type ="submit" name="delete" value="delete">
         </form>
     </div>
     <!-- /.content-wrapper-->

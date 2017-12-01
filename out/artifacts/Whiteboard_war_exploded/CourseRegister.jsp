@@ -85,7 +85,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -126,7 +126,10 @@
         <input type="text" name = "courseId" placeholder="courseId" required>
 
         <input type="text" name="courseName" placeholder="courseName" required>
-        <input type="submit" value="Add">
+        <input type="submit" name ="add" value="Add">
+
+        <input type="submit" name ="RemoveClass" value="delete">
+        <input type="submit" name ="EditClass" value="edit">
     </form>
     </div>
     <!-- /.content-wrapper-->

@@ -90,7 +90,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -149,8 +149,8 @@
 
                             <td><%= id %></td>
                             <td><%= name%></td>
-                            <td>edit</td>
-                            <td>delete</td>
+                            <td><a href = "CourseRegister.jsp">edit</a></td>
+                            <td><a href = "CourseRegister.jsp">delete</a></td>
 
                         </tr>
                         <%

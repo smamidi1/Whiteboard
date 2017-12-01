@@ -91,7 +91,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -131,31 +131,39 @@
                         <tr>
                             <th>Assignment_id</th>
                             <th>Assignment_name</th>
-                            <th>Assignment_desc</th>
                             <th>Total_points</th>
-                            <th>Assignment_deadline</th>
+                            <th>Assignment_desc</th>
+
+                            <th>edit</th>
+                            <th>delete</th>
 
                         </tr>
                         </thead>
 
                         <tbody>
                         <%
+                            HttpSession session1 = request.getSession();
                             Assignmentdao ad = new Assignmentdao();
                             List<AssignmentEntity> asgn = ad.getAllAssignments();
                             for(int i=0;i<asgn.size();i++){
                                 String asgn_id = asgn.get(i).getAssignmentId();
                                 String asgn_name = asgn.get(i).getAssignmentName();
                                 //String asgn_desc = asgn.get(i).;
+                                byte[] asgn_desc = asgn.get(i).getAssignment();
                                 String Total_points = asgn.get(i).getTotalPoints();
                                 //String Dead_line = asgn.get(i).getDeadlineDate();
+                                session1.setAttribute("asgn_desc",asgn_desc);
                         %>
 
                         <tr>
 
                             <td><%= asgn_id %></td>
                             <td><%= asgn_name %></td>
-
                             <td><%= Total_points %></td>
+                            <td><a href ="asgn_view.jsp" target="_blank">view</a></td>
+                            <td><a href ="AddAssignment.jsp">edit</a></td>
+                            <td><a href ="delete_assignment.jsp">delete</a></td>
+
 
 
                         </tr>

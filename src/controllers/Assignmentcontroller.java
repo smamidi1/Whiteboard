@@ -21,31 +21,49 @@ public class Assignmentcontroller extends HttpServlet {
         response.setContentType("text/html");
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
-        String class_id = (String) session.getAttribute("classid");
-        String class_name = (String) session.getAttribute("classname");
+        String class_id = request.getParameter("classid");
+        //String class_name = (String) session.getAttribute("classname");
         String assignment_id = request.getParameter("Assignment-ID");
         String assignment_name = request.getParameter("Assignment-Name");
-            //Integer total_points = Integer.valueOf(request.getParameter("Total-Points"));
-            //out.println("Set");
+        String total_points = request.getParameter("Total-Points");
         InputStream inputStream = null;
         Part filePart = request.getPart("Assignment-doc");
         if (filePart != null) {
             inputStream = filePart.getInputStream();
         }
         Assignmentdao dao3 = new Assignmentdao();
-        String result3 = dao3.addAssignment(assignment_id,assignment_name,inputStream,class_id,class_name);
-        if(result3.equals("Perfect")){
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Inserting Success!');");
-            out.println("location='assignments.jsp';");
-            out.println("</script>");
-        }else{
-            out.println("<script type=\"text/javascript\">");
-            out.println("alert('Inserting UnSuccessful!');");
-            out.println("location='assignments.jsp';");
-            out.println("</script>");
-             }
-       }
+        if (request.getParameter("add") != null) {
+            String result3 = dao3.addAssignment(assignment_id, total_points, assignment_name, inputStream, class_id);
+            if (result3.equals("Perfect")) {
+                response.sendRedirect("assignments.jsp");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Inserting UnSuccessful!');");
+                out.println("location='assignments.jsp';");
+                out.println("</script>");
+            }
+        }else if (request.getParameter("edit") != null) {
+            String result4 = dao3.editAssignment(assignment_id,assignment_name,total_points,inputStream,class_id);
+            if (result4.equals("Editing Succesful")) {
+                response.sendRedirect("assignments.jsp");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Editing UnSuccessful!');");
+                out.println("location='assignments.jsp';");
+                out.println("</script>");
+            }
+        }else if (request.getParameter("delete") != null) {
+            String result5 = dao3.removeAssignment(assignment_id);
+            if (result5.equals("Removed")) {
+                response.sendRedirect("assignments.jsp");
+            } else {
+                out.println("<script type=\"text/javascript\">");
+                out.println("alert('Editing UnSuccessful!');");
+                out.println("location='assignments.jsp';");
+                out.println("</script>");
+            }
+        }
+    }
   }
 
 

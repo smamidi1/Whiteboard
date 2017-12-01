@@ -21,11 +21,10 @@ public class Classcontroller extends HttpServlet {
         PrintWriter out = response.getWriter();
         HttpSession session = request.getSession();
         String username = (String) session.getAttribute("username");
-        //String password = (String) session.getAttribute("password");
-     //   if (request.getParameter("AddClass") != null) {
-            String classid = request.getParameter("courseId");
-            String classname = request.getParameter("courseName");
-            Classesdao dao1 = new Classesdao();
+        String classid = request.getParameter("courseId");
+        String classname = request.getParameter("courseName");
+        Classesdao dao1 = new Classesdao();
+        if(request.getParameter("add")!=null){
             String result = dao1.addClass(classid,classname,username);
             if (result.equals("Inserted")){
                 session.setAttribute("classid",classid);
@@ -34,48 +33,36 @@ public class Classcontroller extends HttpServlet {
             }else{
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Inserting failed!');");
-                out.println("location='Classes_for_Professors.jsp';");
+
                 out.println("</script>");
+                response.sendRedirect("courses.jsp");
             }
-        //}
-        /* if(request.getParameter("RemoveClass")!=null){
-            String classid = request.getParameter("Class-ID");
-            String classname = request.getParameter("Class-Name");
+        }else if(request.getParameter("RemoveClass")!=null){
             Classesdao dao3 = new Classesdao();
             String result = dao3.removeClass(classid);
             if (result.equals("Removed")){
-                //session.setAttribute("classid",classid);
-                //session.setAttribute("classname",classname);
-                //response.sendRedirect("assignments.jsp");
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Removing Success!');");
-                out.println("location='Classes_for_Professors.jsp';");
-                out.println("</script>");
+                response.sendRedirect("courses.jsp");
             }else{
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Removing failed!');");
-                out.println("location='Classes_for_Professors.jsp';");
+
                 out.println("</script>");
+                response.sendRedirect("courses.jsp");
             }
         }else if(request.getParameter("EditClass")!=null){
-            String classid = request.getParameter("Class-ID");
-            String classname = request.getParameter("Class-Name");
             Classesdao dao2 = new Classesdao();
             String result = dao2.editClass(classid,classname,username);
             if (result.equals("Edited")){
                 session.setAttribute("classid",classid);
                 session.setAttribute("classname",classname);
-                response.sendRedirect("assignments.jsp");
-                out.println("<script type=\"text/javascript\">");
-                out.println("alert('Editing Success!');");
-                out.println("location='Classes_for_Professors.jsp';");
-                out.println("</script>");
+                response.sendRedirect("courses.jsp");
+
             }else{
                 out.println("<script type=\"text/javascript\">");
                 out.println("alert('Editing failed!');");
-                out.println("location='Classes_for_Professors.jsp';");
                 out.println("</script>");
+                response.sendRedirect("courses.jsp");
             }
-        }*/
+        }
     }
 }

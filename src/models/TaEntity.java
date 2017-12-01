@@ -28,12 +28,12 @@ public class TaEntity implements Serializable{
     private String taPhone;
 
     @Basic
-    @Column(name = "ta_timings", nullable = true)
-    private Timestamp taTimings;
+    @Column(name = "ta_timings", nullable = true, length = 45)
+    private String taTimings;
 
     @Basic
-    @Column(name = "assignment_id", nullable = true, length = 45)
-    private String assignmentId;
+    @Column(name = "day", nullable = true, length = 45)
+    private String day;
 
     @Column(nullable = true)
     private String CLASS_ID;
@@ -94,20 +94,19 @@ public class TaEntity implements Serializable{
         this.taPhone = taPhone;
     }
 
-    public Timestamp getTaTimings() {
+    public String getTaTimings() {
         return taTimings;
     }
 
-    public void setTaTimings(Timestamp taTimings) {
+    public void setTaTimings(String taTimings) {
         this.taTimings = taTimings;
     }
 
-    public String getAssignmentId() {
-        return assignmentId;
+    public String getDay() {
+        return day;
     }
 
-    public void setAssignmentId(String assignmentId) {
-        this.assignmentId = assignmentId;
+    public void setDay(String day) {
+        this.day = day;
     }
-
 }

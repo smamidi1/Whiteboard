@@ -85,7 +85,7 @@
             <li class="nav-item" data-toggle="tooltip" data-placement="right" title="Link">
                 <a class="nav-link" href="Syllubus.jsp?username= <%=(String) session.getAttribute("username")%>">
                     <i class="fa fa-fw fa-link"></i>
-                    <span class="nav-link-text">Syllubus</span>
+                    <span class="nav-link-text">Syllabus</span>
                 </a>
             </li>
         </ul>
@@ -122,11 +122,12 @@
         <!-- /.container-fluid-->
         <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
         <form action= "Syllabuscontroller" method="post" enctype="multipart/form-data">
+            <input type = "text" name ="idsyllabus" placeholder="id" required>
 
             <input type="text" name = "courseId" placeholder="courseId" required>
 
             <input type="file" name="Assignment-doc" placeholder="choosefile" required>
-            <input type="submit" value="Add">
+            <input type="submit" name= "add" value="Add">
         </form>
     </div>
     <!-- /.content-wrapper-->
