@@ -8,14 +8,46 @@ import java.io.Serializable;
  */
 @Entity
 @Table(name = "student", schema = "project_515")
+@NamedQuery(name="StudentEntity.findAll", query="Select s from StudentEntity s")
 public class StudentEntity implements Serializable {
-    private String studentId;
-    private String studentName;
-    private String studentEmail;
-    private String studentPhno;
-
     @Id
     @Column(name = "student_id", nullable = false, length = 45)
+    private String studentId;
+
+    @Basic
+    @Column(name = "student_name", nullable = true, length = 45)
+    private String studentName;
+
+    @Basic
+    @Column(name = "student_email", nullable = true, length = 45)
+    private String studentEmail;
+
+    @Basic
+    @Column(name = "student_phno", nullable = true, length = 45)
+    private String studentPhno;
+
+    @Column(nullable = true)
+    private String CLASS_ID;
+
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
+
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn(name ="class_id")
+    private ClassesEntity cle1;
+
+    public ClassesEntity getCle1() {
+        return cle1;
+    }
+
+    public void setCle1(ClassesEntity cle1) {
+        this.cle1 = cle1;
+    }
     public String getStudentId() {
         return studentId;
     }
@@ -24,8 +56,7 @@ public class StudentEntity implements Serializable {
         this.studentId = studentId;
     }
 
-    @Basic
-    @Column(name = "student_name", nullable = true, length = 45)
+
     public String getStudentName() {
         return studentName;
     }
@@ -34,8 +65,7 @@ public class StudentEntity implements Serializable {
         this.studentName = studentName;
     }
 
-    @Basic
-    @Column(name = "student_email", nullable = true, length = 45)
+
     public String getStudentEmail() {
         return studentEmail;
     }
@@ -44,8 +74,7 @@ public class StudentEntity implements Serializable {
         this.studentEmail = studentEmail;
     }
 
-    @Basic
-    @Column(name = "student_phno", nullable = true, length = 45)
+
     public String getStudentPhno() {
         return studentPhno;
     }

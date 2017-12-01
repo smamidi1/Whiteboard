@@ -11,42 +11,44 @@
     <schema id="6" parent="1" name="project_515">
       <Visible>1</Visible>
     </schema>
-    <table id="7" parent="6" name="assignment"/>
-    <table id="8" parent="6" name="classes"/>
-    <table id="9" parent="6" name="schedule"/>
-    <table id="10" parent="6" name="student"/>
-    <table id="11" parent="6" name="ta"/>
-    <table id="12" parent="6" name="user"/>
-    <column id="13" parent="7" name="assignment_id">
+    <schema id="7" parent="1" name="test"/>
+    <table id="8" parent="6" name="assignment"/>
+    <table id="9" parent="6" name="classes"/>
+    <table id="10" parent="6" name="schedule"/>
+    <table id="11" parent="6" name="student"/>
+    <table id="12" parent="6" name="syllabus"/>
+    <table id="13" parent="6" name="ta"/>
+    <table id="14" parent="6" name="user"/>
+    <column id="15" parent="8" name="assignment_id">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="14" parent="7" name="assignment_name">
+    <column id="16" parent="8" name="assignment_name">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="15" parent="7" name="assignment_desc">
+    <column id="17" parent="8" name="total_points">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="16" parent="7" name="total_points">
+    <column id="18" parent="8" name="Assignment">
       <Position>4</Position>
-      <DataType>int(11)|0</DataType>
+      <DataType>longblob|0</DataType>
     </column>
-    <column id="17" parent="7" name="class_id">
+    <column id="19" parent="8" name="class_id">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="18" parent="7" name="classId_idx">
+    <index id="20" parent="8" name="cld_idx">
       <ColNames>class_id</ColNames>
     </index>
-    <key id="19" parent="7" name="PRIMARY">
+    <key id="21" parent="8" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>assignment_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="20" parent="7" name="class-id">
+    <foreign-key id="22" parent="8" name="cld">
       <ColNames>class_id</ColNames>
       <RefSchemaName>project_515</RefSchemaName>
       <RefTableName>classes</RefTableName>
@@ -54,88 +56,113 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="21" parent="8" name="class_id">
+    <column id="23" parent="9" name="class_id">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="22" parent="8" name="class_name">
-      <Position>2</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="23" parent="8" name="user_name">
+    <column id="24" parent="9" name="class_name">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="24" parent="8" name="users_idx">
-      <ColNames>user_name</ColNames>
+    <column id="25" parent="9" name="USER_NAME">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="26" parent="9" name="FK_classes_USER_NAME">
+      <ColNames>USER_NAME</ColNames>
     </index>
-    <key id="25" parent="8" name="PRIMARY">
+    <key id="27" parent="9" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>class_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="26" parent="8" name="users">
-      <ColNames>user_name</ColNames>
+    <foreign-key id="28" parent="9" name="FK_classes_USER_NAME">
+      <ColNames>USER_NAME</ColNames>
       <RefSchemaName>project_515</RefSchemaName>
       <RefTableName>user</RefTableName>
       <RefColNames>username</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="27" parent="9" name="class_id">
-      <Position>1</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="28" parent="9" name="timings">
-      <Position>2</Position>
-      <DataType>datetime|0</DataType>
-    </column>
-    <column id="29" parent="9" name="location">
+    <column id="29" parent="10" name="timings">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="30" parent="9" name="classid_idx">
-      <ColNames>class_id</ColNames>
-    </index>
-    <foreign-key id="31" parent="9" name="classid">
-      <ColNames>class_id</ColNames>
+    <column id="30" parent="10" name="location">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="31" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="32" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="33" parent="10" name="di">
+      <ColNames>id</ColNames>
       <RefSchemaName>project_515</RefSchemaName>
       <RefTableName>classes</RefTableName>
       <RefColNames>class_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="32" parent="10" name="student_id">
+    <column id="34" parent="11" name="student_id">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="33" parent="10" name="student_name">
-      <Position>2</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="34" parent="10" name="student_email">
-      <Position>3</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="35" parent="10" name="student_phno">
+    <column id="35" parent="11" name="student_name">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="36" parent="10" name="class_id">
+    <column id="36" parent="11" name="student_email">
+      <Position>3</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <column id="37" parent="11" name="student_phno">
       <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="37" parent="10" name="classID_idx">
-      <ColNames>class_id</ColNames>
+    <column id="38" parent="11" name="CLASS_ID">
+      <Position>2</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="39" parent="11" name="clsd_idx">
+      <ColNames>CLASS_ID</ColNames>
     </index>
-    <key id="38" parent="10" name="PRIMARY">
+    <key id="40" parent="11" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>student_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="39" parent="10" name="for">
+    <foreign-key id="41" parent="11" name="clsd">
+      <ColNames>CLASS_ID</ColNames>
+      <RefSchemaName>project_515</RefSchemaName>
+      <RefTableName>classes</RefTableName>
+      <RefColNames>class_id</RefColNames>
+      <OnUpdate>cascade</OnUpdate>
+      <OnDelete>cascade</OnDelete>
+    </foreign-key>
+    <column id="42" parent="12" name="class_id">
+      <Position>1</Position>
+      <DataType>varchar(45)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="43" parent="12" name="syllabus">
+      <Position>2</Position>
+      <DataType>longblob|0</DataType>
+    </column>
+    <key id="44" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>class_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="45" parent="12" name="clasd">
       <ColNames>class_id</ColNames>
       <RefSchemaName>project_515</RefSchemaName>
       <RefTableName>classes</RefTableName>
@@ -143,65 +170,65 @@
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="40" parent="11" name="ta_id">
+    <column id="46" parent="13" name="ta_id">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="41" parent="11" name="ta_name">
-      <Position>2</Position>
+    <column id="47" parent="13" name="ta_name">
+      <Position>5</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="42" parent="11" name="ta_email">
-      <Position>3</Position>
-      <DataType>varchar(45)|0</DataType>
-    </column>
-    <column id="43" parent="11" name="ta_phone">
+    <column id="48" parent="13" name="ta_email">
       <Position>4</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="44" parent="11" name="ta_timings">
-      <Position>5</Position>
-      <DataType>datetime|0</DataType>
-    </column>
-    <column id="45" parent="11" name="class_id">
+    <column id="49" parent="13" name="ta_phone">
       <Position>6</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="46" parent="11" name="assignment_id">
+    <column id="50" parent="13" name="ta_timings">
       <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="51" parent="13" name="assignment_id">
+      <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <index id="47" parent="11" name="bo_idx">
-      <ColNames>class_id</ColNames>
+    <column id="52" parent="13" name="CLASS_ID">
+      <Position>2</Position>
+      <DataType>varchar(45)|0</DataType>
+    </column>
+    <index id="53" parent="13" name="CLASS_ID_idx">
+      <ColNames>CLASS_ID</ColNames>
     </index>
-    <key id="48" parent="11" name="PRIMARY">
+    <key id="54" parent="13" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>ta_id</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="49" parent="11" name="bo">
-      <ColNames>class_id</ColNames>
+    <foreign-key id="55" parent="13" name="CLASS_ID">
+      <ColNames>CLASS_ID</ColNames>
       <RefSchemaName>project_515</RefSchemaName>
       <RefTableName>classes</RefTableName>
       <RefColNames>class_id</RefColNames>
       <OnUpdate>cascade</OnUpdate>
       <OnDelete>cascade</OnDelete>
     </foreign-key>
-    <column id="50" parent="12" name="username">
+    <column id="56" parent="14" name="username">
       <Position>1</Position>
       <DataType>varchar(45)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="51" parent="12" name="password">
+    <column id="57" parent="14" name="password">
       <Position>2</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <column id="52" parent="12" name="usertype">
+    <column id="58" parent="14" name="usertype">
       <Position>3</Position>
       <DataType>varchar(45)|0</DataType>
     </column>
-    <key id="53" parent="12" name="PRIMARY">
+    <key id="59" parent="14" name="PRIMARY">
       <NameSurrogate>1</NameSurrogate>
       <ColNames>username</ColNames>
       <Primary>1</Primary>

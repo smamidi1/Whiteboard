@@ -14,7 +14,7 @@
         <setting name="provider-name" value="EclipseLink" />
         <datasource-mapping>
           <factory-entry name="NewPersistenceUnit" value="eb37074c-dc79-4c87-b998-0d8de1ad95aa" />
-          <factory-entry name="PersistenceUnit-1" value="005064fe-ac7a-4377-845b-36de0bf494d0" />
+          <factory-entry name="PersistenceUnit-1" value="ffca7afc-2e61-4734-a22f-4d0f0882b58e" />
         </datasource-mapping>
         <deploymentDescriptor name="persistence.xml" url="file://$MODULE_DIR$/src/META-INF/persistence.xml" />
       </configuration>
@@ -39,8 +39,17 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JPA 2.0-2.0" level="project" />
     <orderEntry type="library" name="org.eclipse.persistence:org.eclipse.persistence.osgi:2.4.2" level="project" />
-    <orderEntry type="library" name="mysql:mysql-connector-java:5.1.44" level="project" />
     <orderEntry type="library" name="Java EE 6-Java EE 6" level="project" />
     <orderEntry type="library" name="mysql-connector-java-5.1.44-bin" level="project" />
+    <orderEntry type="module-library">
+      <library>
+        <CLASSES>
+          <root url="jar://$MODULE_DIR$/apacheds-all-1.5.4.jar!/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES />
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="commons-io:commons-io:2.2" level="project" />
   </component>
 </module>

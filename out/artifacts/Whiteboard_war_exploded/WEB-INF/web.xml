@@ -19,4 +19,28 @@
         <servlet-name>Signupcontroller</servlet-name>
         <url-pattern>/Signupcontroller</url-pattern>
     </servlet-mapping>
+    <servlet>
+        <servlet-name>Classcontroller</servlet-name>
+        <servlet-class>controllers.Classcontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Classcontroller</servlet-name>
+        <url-pattern>/Classcontroller</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Assignmentcontroller</servlet-name>
+        <servlet-class>controllers.Assignmentcontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Assignmentcontroller</servlet-name>
+        <url-pattern>/Assignmentcontroller</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>Syllabuscontroller</servlet-name>
+        <servlet-class>controllers.Syllabuscontroller</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Syllabuscontroller</servlet-name>
+        <url-pattern>/Syllabuscontroller</url-pattern>
+    </servlet-mapping>
 </web-app>

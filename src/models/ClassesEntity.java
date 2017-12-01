@@ -1,14 +1,14 @@
 package models;
-
 import javax.persistence.*;
-import java.io.Serializable;
 import java.util.List;
+
 
 /**
  * Created by Dhruva Juloori on 11/22/2017.
  */
 @Entity
 @Table(name = "classes", schema = "project_515")
+@NamedQuery(name="ClassesEntity.findAll", query="Select c from ClassesEntity c")
 public class ClassesEntity {
     @Id
     @Column(name = "class_id", nullable = false, length = 45)
@@ -18,6 +18,16 @@ public class ClassesEntity {
     @Column(name = "class_name", nullable = true, length = 45)
     private String className;
 
+    @Column(nullable = true)
+    private String USER_NAME;
+
+    public String getUSER_NAME() {
+        return USER_NAME;
+    }
+
+    public void setUSER_NAME(String USER_NAME) {
+        this.USER_NAME = USER_NAME;
+    }
 
     public String getClassId() {
         return classId;
@@ -35,8 +45,8 @@ public class ClassesEntity {
         this.className = className;
     }
 
-    /*@ManyToOne(cascade=CascadeType.ALL)
-    @JoinColumn(name ="user_name")
+    @ManyToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn(name ="user_name")
     private UserEntity usr;
 
     public UserEntity getUsr() {
@@ -45,7 +55,12 @@ public class ClassesEntity {
 
     public void setUsr(UserEntity usr) {
         this.usr = usr;
-    }*/
+    }
+
+    @Override
+    public String toString() {
+        return "ClassesEntity{" + "classId='" + classId + '\'' + ", className='" + className + '\'' + ", USER_NAME='" + USER_NAME + '\'' + ", usr=" + usr + '}';
+    }
 
     @OneToMany(cascade=CascadeType.ALL)
     @JoinColumn(name="class_id")
@@ -83,8 +98,8 @@ public class ClassesEntity {
         this.assignmentEntities = assignmentEntities;
     }
 
-    /*@OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name="class_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name="class_id")
     private ScheduleEntity scheduleEntity;
 
     public ScheduleEntity getScheduleEntity() {
@@ -93,5 +108,17 @@ public class ClassesEntity {
 
     public void setScheduleEntity(ScheduleEntity scheduleEntity) {
         this.scheduleEntity = scheduleEntity;
-    }*/
+    }
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn(name="class_id")
+    private SyllabusEntity syllabusEntity;
+
+    public SyllabusEntity getSyllabusEntity() {
+        return syllabusEntity;
+    }
+
+    public void setSyllabusEntity(SyllabusEntity syllabusEntity) {
+        this.syllabusEntity = syllabusEntity;
+    }
 }

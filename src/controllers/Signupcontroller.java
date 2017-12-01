@@ -7,6 +7,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 
@@ -24,6 +25,7 @@ public class Signupcontroller extends HttpServlet {
             Userdao dao2 = new Userdao();
             String result = dao2.createUser(username, password, usertype);
             if (result.equals("Success")){
+                //response.sendRedirect("Classes_for_Professors.jsp");
                 request.getRequestDispatcher("index.jsp").forward(request, response);
             }else{
                 out.println("<script type=\"text/javascript\">");

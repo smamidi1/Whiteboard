@@ -9,6 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "ta", schema = "project_515")
+@NamedQuery(name="TaEntity.findAll", query="Select t from TaEntity t")
 public class TaEntity implements Serializable{
     @Id
     @Column(name = "ta_id", nullable = false, length = 45)
@@ -33,6 +34,29 @@ public class TaEntity implements Serializable{
     @Basic
     @Column(name = "assignment_id", nullable = true, length = 45)
     private String assignmentId;
+
+    @Column(nullable = true)
+    private String CLASS_ID;
+
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
+
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn(name ="class_id")
+    private ClassesEntity cle2;
+
+    public ClassesEntity getCle2() {
+        return cle2;
+    }
+
+    public void setCle2(ClassesEntity cle2) {
+        this.cle2 = cle2;
+    }
 
 
     public String getTaId() {

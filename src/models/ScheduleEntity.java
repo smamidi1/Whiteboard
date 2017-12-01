@@ -1,41 +1,32 @@
 package models;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
- * Created by Dhruva Juloori on 11/25/2017.
+ * Created by Dhruva Juloori on 11/27/2017.
  */
 @Entity
 @Table(name = "schedule", schema = "project_515")
+@NamedQuery(name="ScheduleEntity.findAll", query="Select s from ScheduleEntity s")
 public class ScheduleEntity {
-    @Id
-    @Column(name = "class_id", nullable = false, length = 45)
-    private String classId;
-
     @Basic
-    @Column(name = "timings", nullable = true)
-    private Timestamp timings;
+    @Column(name = "timings", nullable = true, length = 45)
+    private String timings;
 
     @Basic
     @Column(name = "location", nullable = true, length = 45)
     private String location;
 
-
-    public String getClassId() {
-        return classId;
-    }
-
-    public void setClassId(String classId) {
-        this.classId = classId;
-    }
+    @Id
+    @Column(name = "id", nullable = false, length = 45)
+    private String id;
 
 
-    public Timestamp getTimings() {
+    public String getTimings() {
         return timings;
     }
 
-    public void setTimings(Timestamp timings) {
+    public void setTimings(String timings) {
         this.timings = timings;
     }
 
@@ -46,6 +37,15 @@ public class ScheduleEntity {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
     }
 
 

@@ -1,21 +1,54 @@
 package models;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 /**
- * Created by Dhruva Juloori on 11/22/2017.
+ * Created by Dhruva Juloori on 11/27/2017.
  */
 @Entity
 @Table(name = "assignment", schema = "project_515")
-public class AssignmentEntity implements Serializable {
-    private String assignmentId;
-    private String assignmentName;
-    private String assignmentDesc;
-    private Integer totalPoints;
-
+@NamedQuery(name="AssignmentsEntity.findAll", query="Select a from AssignmentEntity a")
+public class AssignmentEntity {
     @Id
     @Column(name = "assignment_id", nullable = false, length = 45)
+    private String assignmentId;
+
+    @Basic
+    @Column(name = "assignment_name", nullable = true, length = 45)
+    private String assignmentName;
+
+    @Basic
+    @Column(name = "total_points", nullable = true, length = 45)
+    private String totalPoints;
+
+    @Basic
+    @Column(name = "Assignment", nullable = true)
+    private byte[] assignment;
+
+
+    @Column(nullable = true)
+    private String CLASS_ID;
+
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
+
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn(name ="class_id")
+    private ClassesEntity cle;
+
+    public ClassesEntity getCle() {
+        return cle;
+    }
+
+    public void setCle(ClassesEntity cle) {
+        this.cle = cle;
+    }
+
     public String getAssignmentId() {
         return assignmentId;
     }
@@ -24,8 +57,7 @@ public class AssignmentEntity implements Serializable {
         this.assignmentId = assignmentId;
     }
 
-    @Basic
-    @Column(name = "assignment_name", nullable = true, length = 45)
+
     public String getAssignmentName() {
         return assignmentName;
     }
@@ -34,24 +66,22 @@ public class AssignmentEntity implements Serializable {
         this.assignmentName = assignmentName;
     }
 
-    @Basic
-    @Column(name = "assignment_desc", nullable = true, length = 45)
-    public String getAssignmentDesc() {
-        return assignmentDesc;
-    }
 
-    public void setAssignmentDesc(String assignmentDesc) {
-        this.assignmentDesc = assignmentDesc;
-    }
-
-    @Basic
-    @Column(name = "total_points", nullable = true)
-    public Integer getTotalPoints() {
+    public String getTotalPoints() {
         return totalPoints;
     }
 
-    public void setTotalPoints(Integer totalPoints) {
+    public void setTotalPoints(String totalPoints) {
         this.totalPoints = totalPoints;
+    }
+
+
+    public byte[] getAssignment() {
+        return assignment;
+    }
+
+    public void setAssignment(byte[] assignment) {
+        this.assignment = assignment;
     }
 
 }

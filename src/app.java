@@ -1,9 +1,12 @@
+import dao.Assignmentdao;
+import dao.Classesdao;
 import models.ClassesEntity;
 import models.UserEntity;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,8 +28,8 @@ public class app {
         em.getTransaction().begin();
         em.persist(ce);
         em.getTransaction().commit();
-        em.close();*/
-      UserEntity ue = new UserEntity();
+        em.close();
+      /*
       ue.setUsername("Kushal");
 
       ClassesEntity ce = new ClassesEntity();
@@ -47,7 +50,15 @@ public class app {
       em.getTransaction().begin();
       em.persist(ue);
       em.getTransaction().commit();
-      em.close();
+      em.close();*/
+        //Assignmentdao d1 = new Assignmentdao();
+        //File file =
+              //  new File("C:/Users/Sudha/Desktop/project_515.sql");
+      //d1.addClass("ITM","Java","user");
+        //d1.addAssignment("1","Network",100,)
+
+      Classesdao d1 = new Classesdao();
+      d1.removeClass("1");
 
     }
 
