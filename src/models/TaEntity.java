@@ -9,6 +9,7 @@ import java.sql.Timestamp;
  */
 @Entity
 @Table(name = "ta", schema = "project_515")
+@NamedQuery(name="TaEntity.findAll", query="Select t from TaEntity t")
 public class TaEntity implements Serializable{
     @Id
     @Column(name = "ta_id", nullable = false, length = 45)
@@ -27,12 +28,35 @@ public class TaEntity implements Serializable{
     private String taPhone;
 
     @Basic
-    @Column(name = "ta_timings", nullable = true)
-    private Timestamp taTimings;
+    @Column(name = "ta_timings", nullable = true, length = 45)
+    private String taTimings;
 
     @Basic
-    @Column(name = "assignment_id", nullable = true, length = 45)
-    private String assignmentId;
+    @Column(name = "day", nullable = true, length = 45)
+    private String day;
+
+    @Column(nullable = true)
+    private String CLASS_ID;
+
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
+
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @PrimaryKeyJoinColumn(name ="class_id")
+    private ClassesEntity cle2;
+
+    public ClassesEntity getCle2() {
+        return cle2;
+    }
+
+    public void setCle2(ClassesEntity cle2) {
+        this.cle2 = cle2;
+    }
 
 
     public String getTaId() {
@@ -70,20 +94,19 @@ public class TaEntity implements Serializable{
         this.taPhone = taPhone;
     }
 
-    public Timestamp getTaTimings() {
+    public String getTaTimings() {
         return taTimings;
     }
 
-    public void setTaTimings(Timestamp taTimings) {
+    public void setTaTimings(String taTimings) {
         this.taTimings = taTimings;
     }
 
-    public String getAssignmentId() {
-        return assignmentId;
+    public String getDay() {
+        return day;
     }
 
-    public void setAssignmentId(String assignmentId) {
-        this.assignmentId = assignmentId;
+    public void setDay(String day) {
+        this.day = day;
     }
-
 }

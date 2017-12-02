@@ -4,6 +4,7 @@ import java.io.*;
 import dao.Userdao;
 
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpSession;
 
 
 /**
@@ -17,16 +18,19 @@ public class Usercontroller extends javax.servlet.http.HttpServlet {
         String password = request.getParameter("password");
         Userdao dao1 = new Userdao();
         String result = dao1.findUser(username, password);
+        HttpSession session = request.getSession();
         if (result.equals("Professor")) {
-            out.println("Success");
+            session.setAttribute("username",username);
+            session.setAttribute("password",password);
+            response.sendRedirect("index1.jsp");
         } else if (result.equals("Student")) {
-            out.println("Success and Hi!");
+            response.sendRedirect("index.jsp");
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Login failed');");
             out.println("location='index.jsp';");
             out.println("</script>");
-            //out.println(result);
+
            }
        }
     }

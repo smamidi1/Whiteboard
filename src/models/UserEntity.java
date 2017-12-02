@@ -11,9 +11,9 @@ import java.util.List;
 @Table(name = "user", schema = "project_515")
 @NamedQueries({@NamedQuery(name="UserEntity.findAll", query="Select u from UserEntity u"),
         @NamedQuery(name="UserEntity.Validation",query="Select u from UserEntity u where u.username = :username and u.password = :password")})
-public class UserEntity {
+public class UserEntity implements Serializable{
     @Id
-    @Column(name = "username", nullable = false, length = 45)
+    @Column(name = "username", nullable = false, updatable = false, length = 45)
     private String username;
 
     @Basic

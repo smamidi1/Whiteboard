@@ -10,6 +10,8 @@
         <element id="library" level="project" name="JPA 2.0-2.0" />
         <element id="library" level="project" name="org.eclipse.persistence:org.eclipse.persistence.osgi:2.4.2" />
         <element id="library" level="project" name="mysql:mysql-connector-java:5.1.44" />
+        <element id="library" level="project" name="mysql-connector-java-5.1.44-bin" />
+        <element id="library" level="project" name="commons-io:commons-io:2.2" />
       </element>
     </root>
   </artifact>

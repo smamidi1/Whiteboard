@@ -8,8 +8,16 @@
     <link rel = "stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
-<body>
+<body >
+<%
+    response.setHeader("Cache-Control","no-cache, no-store, must-revalidate");
+//    if(session.getAttribute("username")==null) {
+//        response.sendRedirect("index.jsp");
+//    }
+%>
 <div id="login">
+
+
     <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
     <form action= "Usercontroller" method="post">
         <span class="fontawesome-user"></span>

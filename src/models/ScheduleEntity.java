@@ -1,41 +1,38 @@
 package models;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
 
 /**
- * Created by Dhruva Juloori on 11/25/2017.
+ * Created by Dhruva Juloori on 12/1/2017.
  */
 @Entity
 @Table(name = "schedule", schema = "project_515")
+@NamedQuery(name="ScheduleEntity.findAll", query="Select s from ScheduleEntity s")
 public class ScheduleEntity {
-    @Id
-    @Column(name = "class_id", nullable = false, length = 45)
-    private String classId;
-
     @Basic
-    @Column(name = "timings", nullable = true)
-    private Timestamp timings;
+    @Column(name = "timings", nullable = true, length = 45)
+    private String timings;
 
     @Basic
     @Column(name = "location", nullable = true, length = 45)
     private String location;
 
+    @Id
+    @Column(name = "schedule_id", nullable = false, length = 45)
+    private String scheduleId;
 
-    public String getClassId() {
-        return classId;
-    }
+    @Column(nullable = true)
+    private String CLASS_ID;
 
-    public void setClassId(String classId) {
-        this.classId = classId;
-    }
+    @Basic
+    @Column(name = "day", nullable = true, length = 45)
+    private String day;
 
-
-    public Timestamp getTimings() {
+    public String getTimings() {
         return timings;
     }
 
-    public void setTimings(Timestamp timings) {
+    public void setTimings(String timings) {
         this.timings = timings;
     }
 
@@ -49,4 +46,27 @@ public class ScheduleEntity {
     }
 
 
+    public String getScheduleId() {
+        return scheduleId;
+    }
+
+    public void setScheduleId(String scheduleId) {
+        this.scheduleId = scheduleId;
+    }
+
+    public String getCLASS_ID() {
+        return CLASS_ID;
+    }
+
+    public void setCLASS_ID(String CLASS_ID) {
+        this.CLASS_ID = CLASS_ID;
+    }
+
+    public String getDay() {
+        return day;
+    }
+
+    public void setDay(String day) {
+        this.day = day;
+    }
 }

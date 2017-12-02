@@ -9,6 +9,7 @@
         <class>models.ScheduleEntity</class>
         <class>models.StudentEntity</class>
         <class>models.TaEntity</class>
+        <class>models.SyllabusEntity</class>
 
         <properties>
             <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306"/>
@@ -18,6 +19,7 @@
             <property name="eclipselink.logging.level" value="FINE"/>
             <property name="eclipselink.jdbc.url" value="jdbc:mysql://localhost:3306"/>
             <property name="eclipselink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+            <!--<property name="eclipselink.weaving" value="static"/>-->
         </properties>
     </persistence-unit>
 </persistence>
