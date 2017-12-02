@@ -8,9 +8,6 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><%= (String) session.getAttribute("username")%> /WhiteBoard </title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel = "stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -20,6 +17,47 @@
     <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
     <!-- Custom styles for this template-->
     <link href="css/sb-admin.css" rel="stylesheet">
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=file], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        #login {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="noBack();"
       onpageshow="if (event.persisted) noBack();" onunload="">
@@ -120,16 +158,16 @@
 <div class="content-wrapper">
     <div id="login">
     <!-- /.container-fluid-->
-    <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
+    <Center><h1><font color="black" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: Black;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
     <form action= "Classcontroller" method="post">
 
-        <input type="text" name = "courseId" placeholder="courseId" required>
+        <input type="text" name = "courseId" placeholder="Course-ID" required>
 
-        <input type="text" name="courseName" placeholder="courseName" required>
+        <input type="text" name="courseName" placeholder="Course-Name" required>
         <input type="submit" name ="add" value="Add">
 
-        <input type="submit" name ="RemoveClass" value="delete">
-        <input type="submit" name ="EditClass" value="edit">
+
+        <input type="submit" name ="EditClass" value="Edit">
     </form>
     </div>
     <!-- /.content-wrapper-->

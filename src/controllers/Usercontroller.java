@@ -24,14 +24,13 @@ public class Usercontroller extends javax.servlet.http.HttpServlet {
             session.setAttribute("password",password);
             response.sendRedirect("index1.jsp");
         } else if (result.equals("Student")) {
-            out.println("Success and Hi!");
+            response.sendRedirect("index.jsp");
         } else {
             out.println("<script type=\"text/javascript\">");
             out.println("alert('Login failed');");
             out.println("location='index.jsp';");
             out.println("</script>");
 
-            //out.println(result);
            }
        }
     }

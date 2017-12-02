@@ -19,7 +19,6 @@ public class Classesdao {
     EntityManager em = emf.createEntityManager();
 
     public String addClass(String classid, String classname, String username){
-        //System.out.println(classid + " " + classname + " " + username);
         UserEntity user = new UserEntity();
         user.setUsername(username);
         ClassesEntity ce = new ClassesEntity();
@@ -40,11 +39,9 @@ public class Classesdao {
 
     public List getAllCourses() {
         em.getTransaction().begin();
-        //SessionFactory sessionFactory = HibernateUtil.getSe
         Query q = em.createNamedQuery("ClassesEntity.findAll",ClassesEntity.class);
         List<ClassesEntity> cs;
         cs = q.getResultList();
-        //cs = (List<ClassesEntity>) q;
         return cs;
     }
 

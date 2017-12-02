@@ -8,9 +8,47 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><%= (String) session.getAttribute("username")%> /WhiteBoard </title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:400,700">
-    <link rel = "stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        input[type=text], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        input[type=file], select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: #4CAF50;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: #45a049;
+        }
+
+        #login {
+            border-radius: 5px;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+    </style>
 
     <!-- Bootstrap core CSS-->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -120,18 +158,18 @@
 <div class="content-wrapper">
     <div id="login">
         <!-- /.container-fluid-->
-        <Center><h1><font color="white" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: white;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
+        <Center><h1><font color="Black" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: black;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
         <form action= "Assignmentcontroller" method="post" enctype="multipart/form-data">
 
             <input type="text" name = "Assignment-ID" placeholder="ID" required>
 
-            <input type="text" name="Assignment-Name"" placeholder="Name" required>
+            <input type="text" name="Assignment-Name" placeholder="Name" required>
             <input type="file" name="Assignment-doc" placeholder="Assignment" required>
             <input type="text" name="Total-Points" placeholder="Total points" required>
-            <input type="text" name="classid" placeholder="classid" required>
-            <input type ="submit" name="add" value="add">
-            <input type ="submit" name="edit" value="edit">
-            <input type ="submit" name="delete" value="delete">
+            <input type="text" name="classid" placeholder="Class-ID" required>
+            <input type ="submit" name="add" value="Add">
+            <input type ="submit" name="edit" value="Edit">
+
         </form>
     </div>
     <!-- /.content-wrapper-->

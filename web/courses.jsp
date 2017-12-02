@@ -150,7 +150,7 @@
                             <td><%= id %></td>
                             <td><%= name%></td>
                             <td><a href = "CourseRegister.jsp">edit</a></td>
-                            <td><a href = "CourseRegister.jsp">delete</a></td>
+                            <td><a href = "deletecourse.jsp">delete</a></td>
 
                         </tr>
                         <%

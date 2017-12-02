@@ -8,6 +8,15 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title><%= (String) session.getAttribute("username")%> /WhiteBoard </title>
+
+    <!-- Bootstrap core CSS-->
+    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <!-- Page level plugin CSS-->
+    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin.css" rel="stylesheet">
     <style>
         input[type=text], select {
             width: 100%;
@@ -49,15 +58,6 @@
             padding: 20px;
         }
     </style>
-
-    <!-- Bootstrap core CSS-->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Custom fonts for this template-->
-    <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-    <!-- Page level plugin CSS-->
-    <link href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet">
-    <!-- Custom styles for this template-->
-    <link href="css/sb-admin.css" rel="stylesheet">
 </head>
 <body class="fixed-nav sticky-footer bg-dark" id="page-top" onload="noBack();"
       onpageshow="if (event.persisted) noBack();" onunload="">
@@ -158,14 +158,16 @@
 <div class="content-wrapper">
     <div id="login">
         <!-- /.container-fluid-->
-        <Center><h1><font color="Black" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: Black;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
-        <form action= "Tacontroller" method="post" >
-            <input type = "text" name ="ta-id" placeholder="ID" required>
+        <Center><h1><font color="black" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: Black;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
+        <form action= "Classcontroller" method="post">
+
+            <input type="text" name = "courseId" placeholder="Course-ID" required>
 
 
 
 
-            <input type="submit" name="RemoveTa" value="delete">
+            <input type="submit" name ="RemoveClass" value="Delete">
+
         </form>
     </div>
     <!-- /.content-wrapper-->

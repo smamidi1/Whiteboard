@@ -114,6 +114,9 @@
 </nav>
 <div class="content-wrapper">
 
+    <Center><h1><font color="black" style="font-family: cursive;"><i class="fa fa-pencil-square-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: Black;" aria-hidden="true" ></i> WHITEBOARD </font> </h1></Center>
+    <Center><h1><font color="Blue" style="font-family: cursive;"><i class="fa fa-smile-o" style="font-size: 29px; text-align:center; padding-left: 10px; color: #1c1d41;" aria-hidden="true" ></i> Welcome <%= user%> </font> </h1></Center>
+
     <!-- /.container-fluid-->
     <!-- /.content-wrapper-->
     <footer class="sticky-footer">
